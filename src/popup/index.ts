@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import credentialsJson from './credentials.json';
 import { IUser } from './models/User';
 import { ICredentials } from './models/Credentials';
+import { UserSwitcher } from './UserSwitcher';
 
 $(document).ready(() => {
     fillDropdownWithCredentials();
@@ -10,9 +11,14 @@ $(document).ready(() => {
     handleUsernameDropdownSelect(); // initialize with top item
 });
 
-function handleUserSwitch() {
-    // your code goes here
-    showSuccess(false);
+function handleUserSwitch(user: IUser) {
+    const switcher = new UserSwitcher(user);
+    return switcher.execute()
+        .then(() => showSuccess(true))
+        .catch((error: string) => {
+            console.error('err ', error);
+            showSuccess(false);
+        });
 }
 
 function fillDropdownWithCredentials() {
@@ -34,7 +40,7 @@ function registerSwitchButtonHandler() {
     $('#switch-btn').click(() => {
         const val = $('#username_selector').val();
         const user = JSON.parse(val as string) as IUser;
-        handleUserSwitch();
+        handleUserSwitch(user);
     });
 }
 

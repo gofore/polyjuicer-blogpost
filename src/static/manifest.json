@@ -11,8 +11,11 @@
     },  
     "icons": {},
     "permissions": [
+        "webRequest", 
+        "webRequestBlocking",
         "*://localhost/",
-        "*://*.gofore.com/"
+        "*://*.gofore.com/",
+        "cookies"
     ],
     "background": {
         "scripts": ["background.js"]
