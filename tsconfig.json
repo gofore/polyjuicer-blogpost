@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": false,
+        "removeComments": false,
+        "noImplicitAny": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "outDir": "./dist/",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "allowSyntheticDefaultImports" : true,
+        "types": [
+            "node",
+            "chrome",
+            "jQuery"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+    ]
+}
